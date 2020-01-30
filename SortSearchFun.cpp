@@ -4,15 +4,45 @@ using namespace std;
 
 void printArray(int[], int);
 void insertionSortArray(int[], int);
+int linearSearchArray(int[], int, int);
 
 int main() {
 	int nums[] = {7, 4, 6, 9, 10, 2, 5, 3, 8};
 	int size = 9;
+	int index = 0;
 
+	//printArray(nums, size);
+	//insertionSortArray(nums, size);
 	printArray(nums, size);
-	insertionSortArray(nums, size);
-	printArray(nums, size);
+	index = linearSearchArray(nums, size, 7); // first item
+	cout << index << endl;
+	index = linearSearchArray(nums, size, 8); // last item
+	cout << index << endl;
+	index = linearSearchArray(nums, size, 11); // not found
+	cout << index << endl;
+	
 	return 0;
+}
+
+int linearSearchArray(int arr[], int n, int target) {
+	int counter = 0;
+	int i; 
+	counter++; // for i
+	counter++; // for i = 0
+	for (i = 0; i < n; i++) {
+		counter++; // for i < n
+		counter++; // if
+		if (arr[i] == target) {
+			counter++; // for return
+			cout << "counter: " << counter << endl;
+			return i;
+		}
+		counter++; // for i++
+	}
+	counter++; // for last i < n 
+	counter++; // for return
+	cout << "counter: " << counter << endl;
+	return -1;
 }
 
 void insertionSortArray(int arr[], int size) {
